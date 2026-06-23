@@ -1,10 +1,10 @@
 import psycopg2
+
 from api import get_planes_in_country
 from db import get_connection
 
 conn = get_connection()
 cur = conn.cursor()
-
 
 
 class DBManager:
@@ -50,12 +50,16 @@ class DBManager:
 
     def get_aeroplanes_with_keyword(self, keyword):
         with self.conn.cursor() as cur:
-            cur.execute("""
+            cur.execute(
+                """
                 SELECT *
                 FROM planes
                 WHERE callsign ILIKE %s
-            """, (f"%{keyword}%",))
+            """,
+                (f"%{keyword}%",),
+            )
             return cur.fetchall()
+
 
 cur.close()
 conn.close()

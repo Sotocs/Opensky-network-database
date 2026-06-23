@@ -1,6 +1,6 @@
+from api import get_planes_in_country
 from db import get_connection
 from db_manager import DBManager
-from api import get_planes_in_country
 
 conn = get_connection()
 db = DBManager(conn)
@@ -11,10 +11,7 @@ for country in countries:
 
     cur = conn.cursor()
 
-    cur.execute(
-        "INSERT INTO countries (name) VALUES (%s) RETURNING id",
-        (country,)
-    )
+    cur.execute("INSERT INTO countries (name) VALUES (%s) RETURNING id", (country,))
     country_id = cur.fetchone()[0]
 
     conn.commit()
@@ -32,12 +29,7 @@ for country in countries:
                 callsign = EXCLUDED.callsign,
                 speed = EXCLUDED.speed
             """,
-            (
-                plane[0],
-                plane[1].strip() if plane[1] else None,
-                plane[9],
-                country_id
-            )
+            (plane[0], plane[1].strip() if plane[1] else None, plane[9], country_id),
         )
 
     conn.commit()
