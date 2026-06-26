@@ -2,6 +2,15 @@ import requests
 
 
 def get_planes_in_country(country_name):
+    """
+        Получает список самолетов в воздушном пространстве указанной страны.
+
+        Args:
+            country_name (str): Название страны.
+
+        Returns:
+            dict: Ответ API OpenSky.
+        """
     response = requests.get(
         "https://nominatim.openstreetmap.org/search",
         params={"q": country_name, "format": "jsonv2"},

@@ -118,6 +118,20 @@ files = [
 ]
 
 [[package]]
+name = "dockstring"
+version = "0.3.4"
+description = "Package for easy ligand preparation and docking with AutoDock Vina against a highly-curated selection of 58 protein targets. One of the three components of the DOCKSTRING bundle (package, dataset, and benchmark tasks)."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "dockstring-0.3.4-py3-none-any.whl", hash = "sha256:e0e61d4f6f5ff22b3cc2905ea01af5752fe0a14f93b4a148d81ffa1fac661cc5"},
+    {file = "dockstring-0.3.4.tar.gz", hash = "sha256:832730f294e88fbcf576347b494a5c3a96eee4e71b23819f6455b6fa053f9f9d"},
+]
+
+[package.extras]
+dev = ["pre-commit", "pytest"]
+
+[[package]]
 name = "isort"
 version = "8.0.1"
 description = "A Python utility / library to sort Python imports."
@@ -493,4 +507,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.14"
-content-hash = "a3d979d3ca8d2a72671e0defd54c2d1c2382bb71f93d282092a37e124ba62e08"
+content-hash = "63f67b7d62a81eae70caedb7b67e054be727bb543ffe9555dff52114be559205"
