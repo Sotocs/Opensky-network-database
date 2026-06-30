@@ -1,7 +1,13 @@
-from src.db import get_connection
+
 from src.db_manager import DBManager
 
+from db import create_tables, get_connection, fill_tables
+
 conn = get_connection()
+
+create_tables(conn)
+
+fill_tables(conn)
 
 db = DBManager(conn)
 
